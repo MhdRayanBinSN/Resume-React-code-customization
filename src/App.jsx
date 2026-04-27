@@ -1,172 +1,256 @@
 import React from 'react';
 
+const resume = {
+  fullName: 'Muhammed Rayan',
+  firstName: 'MUHAMMED',
+  lastName: 'RAYAN',
+  role: 'Software Engineer',
+  location: 'Kottayam, Kerala, IN',
+  contact: {
+    email: 'rayan6203@gmail.com',
+    phone: '+91 8590109268',
+    linkedin: {
+      label: 'linkedin.com/in/mhdrayan',
+      display: 'in/mhdrayan',
+      href: 'https://linkedin.com/in/mhdrayan',
+    },
+    github: {
+      label: 'github.com/MhdRayanBinSN',
+      display: 'MhdRayanBinSN',
+      href: 'https://github.com/MhdRayanBinSN',
+    },
+    website: {
+      label: 'mhdrayan.netlify.app',
+      href: 'https://mhdrayan.netlify.app/',
+    },
+  },
+  summary:
+    'Solutions-driven Computer Science student focused on developing robust systems using clean engineering practices. Experienced in full-stack development, machine learning, and agile methodologies, with a proven ability to solve complex problems and deliver reliable software.',
+  education: [
+    {
+      degree: 'B.Tech in Computer Science and Engineering',
+      institution: 'College of Engineering Kidangoor',
+      date: '2022 - 2026',
+      result: 'CGPA: 8.42',
+    },
+    {
+      degree: 'Higher Secondary (Science)',
+      institution: 'Razi International School',
+      date: '2019 - 2021',
+      result: '93.2%',
+    },
+  ],
+  skills: [
+    'Python',
+    'C/C++',
+    'JavaScript',
+    'React.js',
+    'Next.js',
+    'Node.js',
+    'REST APIs',
+    'Web Development',
+    'SQL',
+    'MongoDB',
+    'Git',
+    'CI/CD',
+    'Machine Learning',
+    'Deep Learning',
+    'Image Processing',
+    'PyTorch',
+    'Scikit-learn',
+    'TensorFlow',
+    'SDLC',
+    'System Design',
+    'Testing/QA',
+    'Agile',
+    'Documentation',
+  ],
+
+  certifications: [
+    'HackerRank SQL (Advanced)',
+    'Kaggle Machine Learning',
+    'Deloitte Data Analytics Simulation',
+  ],
+  languages: ['English (Conversational)', 'Malayalam (Native)', 'Arabic (Literate)'],
+  experience: [
+    {
+      title: 'Software Engineer Intern',
+      company: 'Auctapace Technologies',
+      location: 'Remote',
+      date: 'Oct 2025 - Feb 2026',
+      bullets: [
+        'Building and enhancing Contract Lifecycle Management (CLM) features using React, Node.js, and reusable front-end components.',
+        'Integrated REST API responses into front-end screens to populate contract data, workflow status, user actions, and dashboard views.',
+        'Implemented feature updates, defect fixes, form validations, and UI improvements across agile sprint cycles.',
+        'Tested features through manual QA, debugging, and review feedback to improve reliability before delivery.',
+        'Prepared technical documentation, API notes, and implementation references for smoother handoff and team collaboration.',
+      ],
+    },
+  ],
+  projects: [
+    {
+      title: 'InterLink - Event Platform',
+      date: 'Jan 2025 - Mar 2025',
+      technologies: 'React, TypeScript, MongoDB, JWT',
+      bullets: [
+        'Designed a premium UI for event discovery and booking with React, TypeScript, and MongoDB.',
+        'Built an Organizer Dashboard for event publishing, participant tracking, and ticket verification.',
+        'Secured the platform with JWT authentication and optimized schemas for real-time analytics.',
+      ],
+    },
+    {
+      title: 'Intracranial Aneurysm Detection',
+      date: 'Aug 2025 - Apr 2026',
+      technologies: 'Python, PyTorch, nnU-Net, SimpleITK, pydicom, DICOM, MedGemma',
+      bullets: [
+        'Developed a 3D full-resolution nnU-Net (PyTorch) for spatial localization and multi-label binary segmentation of intracranial aneurysms across 13 distinct anatomical zones.',
+        'Engineered robust 3D medical image preprocessing pipelines using SimpleITK and pydicom to handle dynamic Hounsfield Unit (HU) normalization, orientation correction, and voxel-spacing alignment.',
+        'Architected a memory-efficient inference and evaluation pipeline capable of processing 4,300+ DICOM series directly from compressed archives, computing real-world metrics without disk-write overhead.',
+        'Designed a comparative model analysis framework to benchmark the primary CNN model against MedGemma, analyzing bounding box accuracy and classification performance.',
+      ],
+    },
+    {
+      title: 'CLM User Dashboard',
+      date: 'Dec 2025',
+      technologies: 'React, Node.js, Syncfusion',
+      bullets: [
+        'Built a role-based contract tracking dashboard with real-time status updates and workflow management.',
+        'Implemented bulk assignment and approval workflows, advanced filtering, and infinite scroll for contract navigation.',
+        "Developed a version history panel with document comparison using Syncfusion's Track Changes integration.",
+      ],
+    },
+  ],
+};
+
+
+
+const ContactItem = ({ icon, href, children }) => (
+  <div className="contact-item">
+    <i className={icon}></i>
+    {href ? (
+      <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined}>
+        {children}
+      </a>
+    ) : (
+      <span>{children}</span>
+    )}
+  </div>
+);
+
+const BulletList = ({ items }) => (
+  <ul>
+    {items.map((item) => (
+      <li key={item}>{item}</li>
+    ))}
+  </ul>
+);
+
 function App() {
+
+
   return (
     <>
       <div className="resume-container">
-        
-        {/* --- LEFT SIDEBAR --- */}
         <aside className="sidebar">
-          
-          {/* Header Info (Name/Role) */}
           <div>
-            <h1 style={{ lineHeight: '0.9' }}>MUHAMMED<br/><span style={{ color: '#65a30d' }}>RAYAN</span></h1>
-            <p style={{ marginTop: '0.5rem', fontWeight: 500, color: '#0f172a' }}>Computer Science Engineer</p>
+            <h1 style={{ lineHeight: '0.9' }}>
+              {resume.firstName}
+              <br />
+              <span style={{ color: '#65a30d' }}>{resume.lastName}</span>
+            </h1>
+            <p style={{ marginTop: '0.5rem', fontWeight: 500, color: '#0f172a' }}>{resume.role}</p>
           </div>
 
-          {/* Contact Info */}
           <div className="contact-info">
-            <div className="contact-item">
-              <i className="fas fa-envelope"></i>
-              <a href="mailto:rayan6203@gmail.com">rayan6203@gmail.com</a>
-            </div>
-            <div className="contact-item">
-              <i className="fas fa-phone"></i>
-              <span>+91 8590109268</span>
-            </div>
-            <div className="contact-item">
-              <i className="fab fa-linkedin"></i>
-              <a href="https://linkedin.com/in/mhdrayan" target="_blank" rel="noreferrer">in/mhdrayan</a>
-            </div>
-            <div className="contact-item">
-              <i className="fab fa-github"></i>
-              <a href="https://github.com/MhdRayanBinSN" target="_blank" rel="noreferrer">MhdRayanBinSN</a>
-            </div>
-            <div className="contact-item">
-              <i className="fas fa-map-marker-alt"></i>
-              <span>Kottayam, Kerala, IN</span>
-            </div>
-            <div className="contact-item">
-              <i className="fas fa-globe"></i>
-              <a href="https://portfolio-website.com">itsmerayan.vercel.app</a>
-            </div>
+            <ContactItem icon="fas fa-envelope" href={`mailto:${resume.contact.email}`}>
+              {resume.contact.email}
+            </ContactItem>
+            <ContactItem icon="fas fa-phone">{resume.contact.phone}</ContactItem>
+            <ContactItem icon="fab fa-linkedin" href={resume.contact.linkedin.href}>
+              {resume.contact.linkedin.display}
+            </ContactItem>
+            <ContactItem icon="fab fa-github" href={resume.contact.github.href}>
+              {resume.contact.github.display}
+            </ContactItem>
+            <ContactItem icon="fas fa-map-marker-alt">{resume.location}</ContactItem>
+            <ContactItem icon="fas fa-globe" href={resume.contact.website.href}>
+              {resume.contact.website.label}
+            </ContactItem>
           </div>
 
-          {/* Education */}
           <div>
             <h2>Education</h2>
-            <div style={{ marginBottom: '1rem' }}>
-              <h3 style={{ fontSize: '0.95rem' }}>B.Tech in Computer Science and Engineering</h3>
-              <p style={{ fontSize: '0.85rem', marginTop: '2px' }}>College of Engineering Kidangoor</p>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '4px' }}>
-                <span style={{ fontSize: '0.8rem', color: '#65a30d', fontWeight: 600 }}>2022 – 2026</span>
-                <span style={{ fontSize: '0.8rem', fontWeight: 600 }}>CGPA: 8.3</span>
+            {resume.education.map((item) => (
+              <div key={item.degree} style={{ marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: '0.95rem' }}>{item.degree}</h3>
+                <p style={{ fontSize: '0.85rem', marginTop: '2px' }}>{item.institution}</p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '4px' }}>
+                  <span style={{ fontSize: '0.8rem', color: '#65a30d', fontWeight: 600 }}>{item.date}</span>
+                  <span style={{ fontSize: '0.8rem', fontWeight: 600 }}>{item.result}</span>
+                </div>
               </div>
-            </div>
-            <div>
-              <h3 style={{ fontSize: '0.95rem' }}>Higher Secondary (Science)</h3>
-              <p style={{ fontSize: '0.85rem', marginTop: '2px' }}>Razi International School</p>
-               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '4px' }}>
-                <span style={{ fontSize: '0.8rem', color: '#65a30d', fontWeight: 600 }}>2019 – 2021</span>
-                <span style={{ fontSize: '0.8rem', fontWeight: 600 }}>93.2%</span>
-              </div>
-            </div>
+            ))}
           </div>
 
-          {/* Skills */}
           <div>
             <h2>Skills</h2>
             <div className="skill-tags">
-              <span className="skill-tag">JavaScript</span>
-              <span className="skill-tag">TypeScript</span>
-              <span className="skill-tag">React.js</span>
-              <span className="skill-tag">Next.js</span>
-              <span className="skill-tag">Node.js</span>
-              <span className="skill-tag">Python</span>
-              <span className="skill-tag">C/C++</span>
-              <span className="skill-tag">SQL</span>
-              <span className="skill-tag">MongoDB</span>
-              <span className="skill-tag">Git</span>
-              <span className="skill-tag">Sickit Learn </span>
-              <span className="skill-tag">TensorFlow</span>
-              {/* Engineering Skills */}
-              <span className="skill-tag">SDLC</span>
-              <span className="skill-tag">System Design</span>
-              <span className="skill-tag">Testing/QA</span>
-              <span className="skill-tag">CI/CD</span>
-              <span className="skill-tag">Agile</span>
+              {resume.skills.map((skill) => (
+                <span className="skill-tag" key={skill}>
+                  {skill}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Certifications (Compact) */}
           <div>
             <h2>Certifications</h2>
-            <ul style={{ listStyle: 'none', padding: 0 }}>
-              <li style={{ marginBottom: '0.5rem', fontSize: '0.85rem' }}>• HackerRank SQL (Advanced)</li>
-              <li style={{ marginBottom: '0.5rem', fontSize: '0.85rem' }}>• Kaggle Machine Learning</li>
-              <li style={{ marginBottom: '0.5rem', fontSize: '0.85rem' }}>• Deloitte Data Analytics Sim</li>
+            <ul className="sidebar-list">
+              {resume.certifications.map((certification) => (
+                <li key={certification}>{certification}</li>
+              ))}
             </ul>
           </div>
 
-           {/* Languages */}
-          <div>
-            <h2>Languages</h2>
-            <p>English (Fluent)<br/>Malayalam (Native)<br/>Arabic (Literate)</p>
-          </div>
-
+          
         </aside>
 
-        {/* --- RIGHT MAIN CONTENT --- */}
         <main className="main-content">
-          
-          {/* Summary */}
           <div>
             <h2>Professional Summary</h2>
-            <p>
-              Computer Science Engineering student with strong expertise in full-stack web development, machine learning and Image Processing. Proficient in MERN stack, Python, and modern frameworks. Experienced in building scalable web applications and implementing machine learning models. Demonstrated leadership in technical communities.
-            </p>
+            <p>{resume.summary}</p>
           </div>
 
-          {/* Experience */}
           <div>
             <h2>Experience</h2>
-            <div className="exp-item">
-              <div className="exp-header">
-                <div>
-                  <h3>Software Development Intern</h3>
-                  <p style={{ color: '#0f172a', fontWeight: 500 }}>Auctapace Technologies <span style={{ fontWeight: 400, color: '#64748b' }}>| Remote</span></p>
+            {resume.experience.map((item) => (
+              <div className="exp-item" key={`${item.title}-${item.company}`}>
+                <div className="exp-header">
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p style={{ color: '#0f172a', fontWeight: 500 }}>
+                      {item.company} <span style={{ fontWeight: 400, color: '#64748b' }}>| {item.location}</span>
+                    </p>
+                  </div>
+                  <span className="date-badge">{item.date}</span>
                 </div>
-                <span className="date-badge">Oct 2025 – Present</span>
+                <BulletList items={item.bullets} />
               </div>
-              <ul>
-                <li>Developing and maintaining Contract Lifecycle Management (CLM) software applications using agile methodologies.</li>
-                <li>Conducting comprehensive testing and debugging to resolve software defects.</li>
-                <li>Participating in Scrum meetings and code reviews to ensure robust software delivery.</li>
-                <li>Collaborating with cross-functional teams to implement new features and enhance application functionality.</li>
-              </ul>
-            </div>
+            ))}
           </div>
 
-          {/* Projects */}
           <div>
             <h2>Key Projects</h2>
-            
-            <div className="exp-item">
-              <div className="exp-header">
-                <h3>InterLink - Event Platform</h3>
-                <span className="date-badge">Jan 2025 – Mar 2025</span>
+            {resume.projects.map((project) => (
+              <div className="exp-item" key={project.title}>
+                <div className="exp-header">
+                  <h3>{project.title}</h3>
+                  <span className="date-badge">{project.date}</span>
+                </div>
+                <BulletList items={project.bullets} />
               </div>
-              <ul>
-                <li>Designed a <strong>premium, user-friendly UI</strong> for seamless event discovery and booking using React & TypeScript.</li>
-                <li>Built a robust <strong>Organizer Dashboard</strong> to publish events, track participant bookings, and manage listings.</li>
-                <li>Implemented efficient role-based features for <strong>ticket verification and attendance tracking</strong>.</li>
-                <li>Secured the platform with JWT authentication and optimized MongoDB schemas for real-time analytics.</li>
-              </ul>
-            </div>
-
-            <div className="exp-item">
-              <div className="exp-header">
-                <h3>Intracranial Aneurysm <br /> Detection</h3>
-                <span className="date-badge">Aug 2025 – Ongoing</span>
-              </div>
-              <ul>
-                <li>Developing a DL model to detect aneurysms using Kaggle medical imaging datasets.</li>
-                <li>Processing MRI/CT scan images (DICOM/NIfTI) for model training.</li>
-                <li>Implementing CNN architectures for spatial localization and segmentation.</li>
-              </ul>
-            </div>
+            ))}
           </div>
-          
         </main>
       </div>
 

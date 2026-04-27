@@ -2,12 +2,10 @@
 
 :root {
   --sidebar-bg: #f3f6f8;
-  /* Soft grey/blue tint */
   --main-bg: #ffffff;
   --text-main: #1e293b;
   --text-muted: #64748b;
   --accent-lime: #84cc16;
-  /* A slightly deeper lime/green for better contrast on white, or keep #ccff00 if background is dark. Let's use a fresh green. */
   --accent-highlight: #d9f99d;
   --border-color: #e2e8f0;
 }
@@ -23,7 +21,6 @@ body {
   color: var(--text-main);
   line-height: 1.5;
   background: #cbd5e1;
-  /* Outer background for screen */
   -webkit-print-color-adjust: exact !important;
   print-color-adjust: exact !important;
 }
@@ -31,13 +28,10 @@ body {
 /* Resume Sheet Container */
 .resume-container {
   display: grid;
-  grid-template-columns: 320px 1fr;
-  /* Rigid 2-column */
+  grid-template-columns: 290px 1fr;
   max-width: 210mm;
-  /* A4 Width */
   min-height: 297mm;
-  /* A4 Height */
-  margin: 2rem auto;
+  margin: 1rem auto;
   background: white;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
@@ -45,20 +39,20 @@ body {
 /* Sidebar (Left) */
 .sidebar {
   background: var(--sidebar-bg);
-  padding: 2.5rem 2rem;
+  padding: 2.2rem 1.6rem;
   border-right: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.2rem;
 }
 
 /* Main Content (Right) */
 .main-content {
   background: var(--main-bg);
-  padding: 3rem 2.5rem;
+  padding: 2.2rem 1.6rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 0.8rem;
 }
 
 /* Typography & Elements */
@@ -71,14 +65,14 @@ h1 {
 }
 
 h2 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #334155;
   border-bottom: 2px solid var(--accent-highlight);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+  padding-bottom: 0.15rem;
+  margin-bottom: 0.3rem;
 }
 
 h3 {
@@ -90,7 +84,7 @@ h3 {
 p,
 li,
 .contact-item {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
 }
 
@@ -101,17 +95,29 @@ a {
 
 ul {
   list-style: none;
-  /* Reset default */
+}
+
+.sidebar-list {
+  list-style: disc;
+  padding-left: 1rem;
+}
+
+.sidebar-list li {
+  margin-bottom: 0.35rem;
+}
+
+.language-list {
+  white-space: pre-line;
 }
 
 /* Main List Styles (Bullets) */
 .main-content ul {
   list-style: disc;
-  padding-left: 1.2rem;
+  padding-left: 1rem;
 }
 
 .main-content li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
 }
 
 /* Sidebar Contact Info */
@@ -130,7 +136,6 @@ ul {
 
 .contact-item i {
   color: #65a30d;
-  /* Lime/Green icon */
   width: 20px;
   text-align: center;
 }
@@ -139,7 +144,7 @@ ul {
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
 
 .skill-tag {
@@ -154,14 +159,16 @@ ul {
 
 /* Experience Item */
 .exp-item {
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.6rem;
 }
 
 .exp-header {
   display: flex;
+  flex-wrap: nowrap; /* Prevent date badge from wrapping */
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+  margin-bottom: 0.1rem;
 }
 
 .date-badge {
@@ -171,6 +178,8 @@ ul {
   background: #ecfccb;
   padding: 2px 8px;
   border-radius: 4px;
+  white-space: nowrap; /* Never break date text */
+  flex-shrink: 0; /* Don't shrink the badge */
 }
 
 /* Save Button (Floating) */
@@ -197,7 +206,27 @@ ul {
   transform: scale(1.05);
 }
 
-/* PRINT OPTIMIZATION (1 Page) */
+/* Responsive */
+@media (max-width: 820px) {
+  .resume-container {
+    grid-template-columns: 1fr;
+    max-width: calc(100% - 1rem);
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .exp-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* ============================================================
+   PRINT OPTIMIZATION — A4, single page, fill the page
+   ============================================================ */
 @media print {
   @page {
     margin: 0;
@@ -212,75 +241,110 @@ ul {
     margin: 0;
     box-shadow: none;
     max-width: 100%;
-    min-height: 100vh;
-    height: 100vh;
-    /* Force full height */
+    min-height: 296mm;
+    grid-template-columns: 290px 1fr !important;
   }
 
   .save-btn {
     display: none !important;
   }
 
-  /* Compaction for 1 page fit */
+  /* ---- Sidebar ---- */
   .sidebar {
-    padding: 2rem 1.5rem !important;
-    /* Restored some padding */
-    gap: 1.2rem !important;
+    padding: 1.8rem 1.4rem !important;
+    gap: 1rem !important;
   }
 
+  /* ---- Main content ---- */
   .main-content {
-    padding: 2.2rem 2rem !important;
-    /* Restored some padding */
-    gap: 1.2rem !important;
+    padding: 1.8rem 1.4rem !important;
+    gap: 1rem !important;
   }
 
+  /* ---- Typography ---- */
   h1 {
     font-size: 2.4rem !important;
-    /* Larger name */
-    margin-bottom: 0.3rem !important;
+    margin-bottom: 0.4rem !important;
   }
 
   h2 {
-    font-size: 1.05rem !important;
-    /* Readable headers */
-    margin-bottom: 0.6rem !important;
-    padding-bottom: 0.4rem !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 0.4rem !important;
+    padding-bottom: 0.2rem !important;
   }
 
   h3 {
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
   }
 
   p,
   li,
   .contact-item {
-    font-size: 0.9rem !important;
-    /* Increased from 0.8rem for readability */
-    line-height: 1.45 !important;
-    margin-bottom: 0.2rem !important;
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.15rem !important;
+  }
+
+  /* ---- Keep dates INLINE with titles ---- */
+  .exp-header {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: baseline !important;
+    gap: 0.5rem !important;
+  }
+
+  .date-badge {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+    font-size: 0.78rem !important;
+    padding: 2px 8px !important;
   }
 
   .exp-item {
-    margin-bottom: 1.2rem !important;
+    margin-bottom: 0.7rem !important;
   }
 
   ul {
     margin-bottom: 0 !important;
   }
 
-  /* Skills - Keep compact but readable */
+  .main-content ul {
+    padding-left: 1rem !important;
+  }
+
+  .main-content li {
+    margin-bottom: 0.15rem !important;
+  }
+
+  /* ---- Skills ---- */
   .skill-tags {
-    gap: 0.4rem !important;
+    gap: 0.35rem !important;
   }
 
   .skill-tag {
-    font-size: 0.8rem !important;
+    font-size: 0.78rem !important;
     padding: 0.2rem 0.5rem !important;
     border: 1px solid #ddd !important;
-    line-height: 1.2 !important;
+    line-height: 1.3 !important;
   }
 
-  /* Ensure backgrounds print */
+  /* ---- Contact ---- */
+  .contact-info {
+    gap: 0.7rem !important;
+  }
+
+  .contact-item {
+    gap: 0.7rem !important;
+  }
+
+  /* ---- Sidebar list (certifications) ---- */
+  .sidebar-list li {
+    margin-bottom: 0.3rem !important;
+  }
+
+  /* ---- Ensure backgrounds print ---- */
   .sidebar,
   .date-badge,
   .skill-tag {

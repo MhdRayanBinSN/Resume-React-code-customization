@@ -1,0 +1,165 @@
+%-------------------------
+% ATS-Friendly Resume in LaTeX
+% Based on Jake Gutierrez / sb2nov resume template
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.65in}
+\addtolength{\textheight}{1.3in}
+\setlength{\footskip}{4.08003pt}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \textbf{#1}\hfill \small #2 \\
+    \textit{\small #3}\hfill \textit{\small #4}
+    \vspace{-6pt}
+}
+
+\newcommand{\resumeProjectHeading}[3]{
+    \item
+    \small \textbf{#1}\hfill #2 \\
+    \small \emph{#3}
+    \vspace{-7pt}
+}
+
+\newcommand{\resumeEducationHeading}[4]{
+  \vspace{-2pt}\item
+    \textbf{#1} $|$ \small #2 \\
+    \textit{\small #3} $|$ \textit{\small #4}
+    \vspace{-6pt}
+}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0pt, topsep=2pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=0pt, topsep=1pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Huge \rmfamily Muhammed Rayan} \\ \vspace{1pt}
+    \small Computer Science Engineer \\ \vspace{1pt}
+    \small +91 8590109268 $|$ \href{mailto:rayan6203@gmail.com}{\underline{rayan6203@gmail.com}} $|$
+    Kottayam, Kerala, IN $|$
+    \href{https://linkedin.com/in/mhdrayan}{\underline{linkedin.com/in/mhdrayan}} $|$
+    \href{https://github.com/MhdRayanBinSN}{\underline{github.com/MhdRayanBinSN}} $|$
+    \href{https://mhdrayan.netlify.app/}{\underline{mhdrayan.netlify.app}}
+\end{center}
+
+\section{Professional Summary}
+\small{Solutions-driven Computer Science student focused on developing robust systems using clean engineering practices. Experienced in full-stack development, machine learning, and agile methodologies, with a proven ability to solve complex problems and deliver reliable software.}
+
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeEducationHeading
+      {College of Engineering Kidangoor}{2022 - 2026}
+      {B.Tech in Computer Science and Engineering}{CGPA: 8.42}
+    \resumeEducationHeading
+      {Razi International School}{2019 - 2021}
+      {Higher Secondary (Science)}{93.2\%}
+  \resumeSubHeadingListEnd
+
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: JavaScript, TypeScript, Python, C/C++, SQL, HTML/CSS} \\
+     \textbf{Web Development}{: React.js, Next.js, Node.js, REST APIs, HTML/CSS, MongoDB} \\
+     \textbf{ML, Deep Learning and Image Processing}{: Machine Learning, Deep Learning, PyTorch, TensorFlow, Scikit-learn, OpenCV, SimpleITK, pydicom, DICOM} \\
+     \textbf{DevOps and Tools}{: Git, CI/CD, Testing/QA, Syncfusion, Documentation} \\
+     \textbf{Engineering Practices}{: SDLC, System Design, Agile, Scrum, Code Reviews}
+    }}
+ \end{itemize}
+
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Software Engineer Intern}{Oct 2025 - Present}
+      {Auctapace Technologies}{Remote}
+      \resumeItemListStart
+        \resumeItem{Building and enhancing Contract Lifecycle Management (CLM) features using React, Node.js, and reusable front-end components.}
+        \resumeItem{Integrated REST API responses into front-end screens to populate contract data, workflow status, user actions, and dashboard views.}
+        \resumeItem{Implemented feature updates, defect fixes, form validations, and UI improvements across agile sprint cycles.}
+        \resumeItem{Tested features through manual QA, debugging, and review feedback to improve reliability before delivery.}
+        \resumeItem{Prepared technical documentation, API notes, and implementation references for smoother handoff and team collaboration.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {InterLink - Event Platform}{Jan 2025 - Mar 2025}{React, TypeScript, MongoDB, JWT}
+          \resumeItemListStart
+            \resumeItem{Designed a premium UI for event discovery and booking with React, TypeScript, and MongoDB.}
+            \resumeItem{Built an Organizer Dashboard for event publishing, participant tracking, and ticket verification.}
+            \resumeItem{Secured the platform with JWT authentication and optimized schemas for real-time analytics.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {Intracranial Aneurysm Detection}{Aug 2025 - Ongoing}{Python, PyTorch, nnU-Net, SimpleITK, pydicom, DICOM, MedGemma}
+          \resumeItemListStart
+            \resumeItem{Developed a 3D full-resolution nnU-Net (PyTorch) for spatial localization and multi-label binary segmentation of intracranial aneurysms across 13 distinct anatomical zones.}
+            \resumeItem{Engineered robust 3D medical image preprocessing pipelines using SimpleITK and pydicom to handle dynamic Hounsfield Unit (HU) normalization, orientation correction, and voxel-spacing alignment.}
+            \resumeItem{Architected a memory-efficient inference and evaluation pipeline capable of processing 4,300+ DICOM series directly from compressed archives, computing real-world metrics without disk-write overhead.}
+            \resumeItem{Designed a comparative model analysis framework to benchmark the primary CNN model against MedGemma, analyzing bounding box accuracy and classification performance.}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {CLM User Dashboard}{Dec 2025}{React, Node.js, Syncfusion}
+          \resumeItemListStart
+            \resumeItem{Built a role-based contract tracking dashboard with real-time status updates and workflow management.}
+            \resumeItem{Implemented bulk assignment and approval workflows, advanced filtering, and infinite scroll for contract navigation.}
+            \resumeItem{Developed a version history panel with document comparison using Syncfusion's Track Changes integration.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+\section{Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{HackerRank SQL (Advanced) $|$ Kaggle Machine Learning $|$ Deloitte Data Analytics Simulation}}
+ \end{itemize}
+
+\section{Languages}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{English (Conversational) $|$ Malayalam (Native) $|$ Arabic (Literate)}}
+ \end{itemize}
+
+\end{document}
