@@ -162,7 +162,29 @@ const latexCompilerPlugin = () => ({
   },
 })
 
+const saveTexPlugin = () => ({
+  name: 'save-tex-to-disk',
+  configureServer(server) {
+    server.middlewares.use('/api/save-tex', async (request, response) => {
+      if (request.method !== 'POST') {
+        sendJson(response, 405, { error: 'Use POST to save.' })
+        return
+      }
+
+      try {
+        const body = await readJsonBody(request)
+        const texPath = join(import.meta.dirname, 'public', 'ats-resume.tex')
+        await writeFile(texPath, body.source, 'utf8')
+        sendJson(response, 200, { saved: true, path: texPath })
+      } catch (error) {
+        sendJson(response, 500, { error: error.message })
+      }
+    })
+  },
+})
+
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), latexCompilerPlugin()],
+  plugins: [react(), latexCompilerPlugin(), saveTexPlugin()],
 })
+

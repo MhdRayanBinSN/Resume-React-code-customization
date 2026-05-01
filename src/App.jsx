@@ -1,128 +1,6 @@
 import React from 'react';
-
-const resume = {
-  fullName: 'Muhammed Rayan',
-  firstName: 'MUHAMMED',
-  lastName: 'RAYAN',
-  role: 'Software Engineer',
-  location: 'Kottayam, Kerala, IN',
-  contact: {
-    email: 'rayan6203@gmail.com',
-    phone: '+91 8590109268',
-    linkedin: {
-      label: 'linkedin.com/in/mhdrayan',
-      display: 'in/mhdrayan',
-      href: 'https://linkedin.com/in/mhdrayan',
-    },
-    github: {
-      label: 'github.com/MhdRayanBinSN',
-      display: 'MhdRayanBinSN',
-      href: 'https://github.com/MhdRayanBinSN',
-    },
-    website: {
-      label: 'mhdrayan.netlify.app',
-      href: 'https://mhdrayan.netlify.app/',
-    },
-  },
-  summary:
-    'Solutions-driven Computer Science student focused on developing robust systems using clean engineering practices. Experienced in full-stack development, machine learning, and agile methodologies, with a proven ability to solve complex problems and deliver reliable software.',
-  education: [
-    {
-      degree: 'B.Tech in Computer Science and Engineering',
-      institution: 'College of Engineering Kidangoor',
-      date: '2022 - 2026',
-      result: 'CGPA: 8.42',
-    },
-    {
-      degree: 'Higher Secondary (Science)',
-      institution: 'Razi International School',
-      date: '2019 - 2021',
-      result: '93.2%',
-    },
-  ],
-  skills: [
-    'Python',
-    'C/C++',
-    'JavaScript',
-    'React.js',
-    'Next.js',
-    'Node.js',
-    'REST APIs',
-    'Web Development',
-    'SQL',
-    'MongoDB',
-    'Git',
-    'CI/CD',
-    'Machine Learning',
-    'Deep Learning',
-    'Image Processing',
-    'PyTorch',
-    'Scikit-learn',
-    'TensorFlow',
-    'SDLC',
-    'System Design',
-    'Testing/QA',
-    'Agile',
-    'Documentation',
-  ],
-
-  certifications: [
-    'HackerRank SQL (Advanced)',
-    'Kaggle Machine Learning',
-    'Deloitte Data Analytics Simulation',
-  ],
-  languages: ['English (Conversational)', 'Malayalam (Native)', 'Arabic (Literate)'],
-  experience: [
-    {
-      title: 'Software Engineer Intern',
-      company: 'Auctapace Technologies',
-      location: 'Remote',
-      date: 'Oct 2025 - Feb 2026',
-      bullets: [
-        'Building and enhancing Contract Lifecycle Management (CLM) features using React, Node.js, and reusable front-end components.',
-        'Integrated REST API responses into front-end screens to populate contract data, workflow status, user actions, and dashboard views.',
-        'Implemented feature updates, defect fixes, form validations, and UI improvements across agile sprint cycles.',
-        'Tested features through manual QA, debugging, and review feedback to improve reliability before delivery.',
-        'Prepared technical documentation, API notes, and implementation references for smoother handoff and team collaboration.',
-      ],
-    },
-  ],
-  projects: [
-    {
-      title: 'InterLink - Event Platform',
-      date: 'Jan 2025 - Mar 2025',
-      technologies: 'React, TypeScript, MongoDB, JWT',
-      bullets: [
-        'Designed a premium UI for event discovery and booking with React, TypeScript, and MongoDB.',
-        'Built an Organizer Dashboard for event publishing, participant tracking, and ticket verification.',
-        'Secured the platform with JWT authentication and optimized schemas for real-time analytics.',
-      ],
-    },
-    {
-      title: 'Intracranial Aneurysm Detection',
-      date: 'Aug 2025 - Apr 2026',
-      technologies: 'Python, PyTorch, nnU-Net, SimpleITK, pydicom, DICOM, MedGemma',
-      bullets: [
-        'Developed a 3D full-resolution nnU-Net (PyTorch) for spatial localization and multi-label binary segmentation of intracranial aneurysms across 13 distinct anatomical zones.',
-        'Engineered robust 3D medical image preprocessing pipelines using SimpleITK and pydicom to handle dynamic Hounsfield Unit (HU) normalization, orientation correction, and voxel-spacing alignment.',
-        'Architected a memory-efficient inference and evaluation pipeline capable of processing 4,300+ DICOM series directly from compressed archives, computing real-world metrics without disk-write overhead.',
-        'Designed a comparative model analysis framework to benchmark the primary CNN model against MedGemma, analyzing bounding box accuracy and classification performance.',
-      ],
-    },
-    {
-      title: 'CLM User Dashboard',
-      date: 'Dec 2025',
-      technologies: 'React, Node.js, Syncfusion',
-      bullets: [
-        'Built a role-based contract tracking dashboard with real-time status updates and workflow management.',
-        'Implemented bulk assignment and approval workflows, advanced filtering, and infinite scroll for contract navigation.',
-        "Developed a version history panel with document comparison using Syncfusion's Track Changes integration.",
-      ],
-    },
-  ],
-};
-
-
+import { resume } from './data/resume';
+import Navbar from './components/Navbar';
 
 const ContactItem = ({ icon, href, children }) => (
   <div className="contact-item">
@@ -146,10 +24,9 @@ const BulletList = ({ items }) => (
 );
 
 function App() {
-
-
   return (
     <>
+      <Navbar />
       <div className="resume-container">
         <aside className="sidebar">
           <div>
@@ -211,8 +88,6 @@ function App() {
               ))}
             </ul>
           </div>
-
-          
         </aside>
 
         <main className="main-content">
