@@ -42,6 +42,8 @@ export const resume = {
     'Python',
     'C/C++',
     'JavaScript',
+    'HTML',
+    'CSS',
     'React.js',
     'Next.js',
     'Node.js',
@@ -66,15 +68,11 @@ export const resume = {
   skillGroups: [
     {
       label: 'Languages',
-      items: ['JavaScript', 'TypeScript', 'Python', 'C/C++', 'SQL', 'HTML/CSS'],
+      items: ['JavaScript', 'TypeScript', 'Python', 'C/C++', 'Java','SQL', 'HTML/CSS'],
     },
     {
-      label: 'Web Development',
-      items: ['React.js', 'Next.js', 'Node.js', 'REST APIs', 'HTML/CSS', 'MongoDB'],
-    },
-    {
-      label: 'ML, Deep Learning and Image Processing',
-      items: ['Machine Learning', 'Deep Learning', 'PyTorch', 'TensorFlow', 'Scikit-learn', 'OpenCV', 'SimpleITK', 'pydicom', 'DICOM'],
+      label: 'Frameworks & Technologies',
+      items: ['React.js', 'Next.js', 'Node.js', 'REST APIs', 'MongoDB', 'Machine Learning', 'Deep Learning', 'Neural Networks', 'TensorFlow', 'Scikit-learn'],
     },
     {
       label: 'DevOps and Tools',

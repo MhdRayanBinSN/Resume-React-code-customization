@@ -19,6 +19,20 @@ const Navbar = () => (
           Visual Resume
         </NavLink>
         <NavLink
+          to="/v2"
+          className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
+        >
+          <i className="fas fa-star"></i>
+          Resume V2
+        </NavLink>
+        <NavLink
+          to="/tobin"
+          className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
+        >
+          <i className="fas fa-user"></i>
+          Tobin Tom
+        </NavLink>
+        <NavLink
           to="/latex"
           className={({ isActive }) => `navbar-link${isActive ? ' active' : ''}`}
         >
